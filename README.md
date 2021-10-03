@@ -1,2 +1,2 @@
 # Python
-submit you pyhton codes here with questions 
+submit your pyhton codes here with questions 
