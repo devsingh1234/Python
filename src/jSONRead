@@ -1,0 +1,38 @@
+# importing the module 
+import json
+import requests
+
+final_dict=dict()
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36'}
+url="https://www.reddit.com/r/TellMeAFact/top/.json"
+r = requests.get(url, allow_redirects=True,headers=headers)
+open('test.json', 'wb').write(r.content)
+# print(x)
+with open("test.json") as json_file:
+    data = json.load(json_file)
+final_dict["title"]=[(data["data"]["children"][1]["data"]["title"])]
+final_dict["sortKey"]=[(data["data"]["children"][1]["data"]["suggested_sort"])]
+final_dict["sortKey"]=[(data["data"]["children"][1]["data"]["suggested_sort"])]
+final_dict["url"]=[(data["data"]["children"][1]["data"]["url"])]
+
+print(final_dict)
+
+
+    # Print the data of dictionary
+{
+        "createdOn": "2020-08-05T14:13:32.967Z",
+        "data": "AA",
+        "description": "sample description",
+        "dislikes": "200",
+        "hashtagId": "AAGGQQQ",
+        "interactions": "2000",
+        "likes": "13452345",
+        "metaData": "100",
+        "partitionKey": "bd732716-1dbd-4f80-9db2-fa5e6dc7cc89",
+        "slug": "www.yoloconnect.com/slugurl",
+        "sortKey": "CONTENT",
+        "source": "facebook",
+        "thumbnail": "www.thumbnail.url",
+        "title": "sample title",
+        "url": "www.xrz.com"
+    }
